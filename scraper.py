@@ -99,7 +99,7 @@ soup = BeautifulSoup(html, 'lxml')
 links = soup.findAll('a', href=True)
 for ul_link in links:
     if 'Payments to suppliers' in ul_link.text and 'CSV' in ul_link.text:
-        archive_url = 'http://www.leicestershire.gov.uk' + ul_link['href']
+        archive_url = 'http://www.leicestershire.gov.uk' + ul_link['href'].strip()
         title = ul_link.text
         csvYr = title.split('(')[0].strip().split()[-1]
         csvMth = title.split('(')[0].strip().split()[-2][:3]
